@@ -39,7 +39,7 @@ internal fun AppScreen(
     onAdd: () -> Unit
 ) {
     Scaffold(
-        topAppBar = {
+        topBar = {
             val navigationIcon = if (showBack) Icons.Default.ArrowBack else Icons.Default.Menu
             TopAppBar(
                 navigationIcon = {
@@ -68,7 +68,7 @@ internal fun AppScreen(
 
 @Suppress("SameParameterValue")
 @Composable
-private fun Counter(@Pivotal periodMs: Long): Int {
+private fun Counter(periodMs: Long): Int {
     // If the screen is temporarily removed from the composition, the counter will effectively
     // be "paused": it will stop incrementing, but will resume from its last value when restored to
     // the composition.

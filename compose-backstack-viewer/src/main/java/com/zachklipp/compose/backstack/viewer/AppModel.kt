@@ -1,12 +1,10 @@
 package com.zachklipp.compose.backstack.viewer
 
 import androidx.compose.Composable
-import androidx.compose.Model
 import androidx.ui.savedinstancestate.listSaver
 import androidx.ui.savedinstancestate.rememberSavedInstanceState
 import com.zachklipp.compose.backstack.BackstackTransition
 
-@Model
 internal class AppModel private constructor(
     namedTransitions: List<Pair<String, BackstackTransition>>,
     prefabBackstacks: List<List<String>>

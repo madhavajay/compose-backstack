@@ -2,14 +2,10 @@
 
 package com.zachklipp.compose.backstack
 
-import androidx.ui.core.LayoutDirection
-import androidx.ui.core.LayoutModifier
-import androidx.ui.core.Modifier
-import androidx.ui.core.drawOpacity
+import androidx.ui.core.*
 import androidx.ui.unit.Density
-import androidx.ui.unit.IntPxPosition
-import androidx.ui.unit.IntPxSize
-import androidx.ui.unit.ipx
+import androidx.ui.unit.IntOffset
+import androidx.ui.unit.IntSize
 import com.zachklipp.compose.backstack.BackstackTransition.Crossfade
 import com.zachklipp.compose.backstack.BackstackTransition.Slide
 
@@ -49,18 +45,34 @@ interface BackstackTransition {
         )
 
         private class PercentageLayoutOffset(private val offset: Float) : LayoutModifier {
-            override fun Density.modifyPosition(
-                childSize: IntPxSize,
-                containerSize: IntPxSize,
+            override fun MeasureScope.measure(
+                measurable: Measurable,
+                constraints: Constraints,
                 layoutDirection: LayoutDirection
-            ): IntPxPosition {
-                var realOffset = offset.coerceIn(-1f..1f)
-                if (layoutDirection == LayoutDirection.Rtl) realOffset *= -1f
-                return IntPxPosition(
-                    x = containerSize.width * realOffset,
-                    y = 0.ipx
-                )
+            ): MeasureScope.MeasureResult {
+                TODO("Not yet implemented")
+//                var realOffset = offset.coerceIn(-1f..1f)
+//                if (layoutDirection == LayoutDirection.Rtl) realOffset *= -1f
+
+//                how does this work?
+//                return MeasureScope().layout(
+//                    width = (constraints.maxWidth * realOffset).dp,
+//                    height = constraints.maxHeight,
+//                    alignmentLines = Map()
+//                )
             }
+//            override fun Density.modifyPosition(
+//                childSize: IntSize,
+//                containerSize: IntSize,
+//                layoutDirection: LayoutDirection
+//            ): IntOffset {
+//                var realOffset = offset.coerceIn(-1f..1f)
+//                if (layoutDirection == LayoutDirection.Rtl) realOffset *= -1f
+//                return IntOffset(
+//                    x = (containerSize.width * realOffset).toInt(),
+//                    y = 0
+//                )
+//            }
         }
     }
 
